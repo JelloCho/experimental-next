@@ -6,15 +6,16 @@ import { FC } from "react";
 import { PostType } from "../utils/types";
 import Link from "next/link";
 import Date from "../components/date";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
 
 type HomeProps = {
   allPostsData: Array<PostType>;
